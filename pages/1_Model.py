@@ -3,8 +3,6 @@ import pandas as pd
 import numpy as np
 import tensorflow as tf
 import joblib
-import os
-import tensorflow as tf
 
 from warnings import filterwarnings
 filterwarnings("ignore")
@@ -52,14 +50,7 @@ est_salary = st.number_input("What is the estimated salary of the Customer: ", m
 #personal_info = [cust_id, name]
 stat_info = geo + [cred, gender, age, tenure, bal, num_products, cred_card, active_mem, est_salary]
 
-# get absolute filepath
-#file_path_s = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "model", "scaler_instance.joblib")
-#file_path_c = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "model", "classifier.joblib")
-
-
-# parent_dir = os.path.dirname(current_dir)
 scaler = joblib.load("scaler_instance.joblib")
-#classifier = joblib.load("classifier.joblib")
 options = tf.saved_model.LoadOptions(experimental_io_device='/job:localhost')
 classifier = tf.keras.models.load_model("saved_model", options=options)
 pred = classifier.predict(scaler.transform(np.array([stat_info])))
