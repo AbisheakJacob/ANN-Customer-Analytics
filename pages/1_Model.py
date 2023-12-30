@@ -4,7 +4,6 @@ import numpy as np
 #from keras.models import load_model
 import joblib
 import os
-curr_dir = os.getcwd()
 
 from warnings import filterwarnings
 filterwarnings("ignore")
@@ -49,15 +48,17 @@ active_mem = st.selectbox("Is the customer an Active Member? ", ['Yes', 'No'], i
 active_mem = {'Yes': 1, 'No': 0}.get(active_mem, 0)
 est_salary = st.number_input("What is the estimated salary of the Customer: ", min_value=0, value=None, step=1)
 
-
 #personal_info = [cust_id, name]
 stat_info = geo + [cred, gender, age, tenure, bal, num_products, cred_card, active_mem, est_salary]
 
+# get absolute filepath
+file_path_s = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "model", "scaler_instance.joblib")
+file_path_c = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "model", "classifier.joblib")
 
 
 # parent_dir = os.path.dirname(current_dir)
-scaler = joblib.load(curr_dir + "\model\scaler_instance.joblib")
-classifier = joblib.load(curr_dir + "\model\classifier.joblib")
+scaler = joblib.load(file_path_s)
+classifier = joblib.load(file_path_c)
 
 pred = classifier.predict(scaler.transform(np.array([stat_info])))
 new_pred = round(float(pred[0][0] * 100), 2)
