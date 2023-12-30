@@ -1,7 +1,7 @@
 import streamlit as st 
 import pandas as pd
 import numpy as np
-#from keras.models import load_model
+from keras.models import load_model
 import joblib
 import os
 
@@ -52,13 +52,13 @@ est_salary = st.number_input("What is the estimated salary of the Customer: ", m
 stat_info = geo + [cred, gender, age, tenure, bal, num_products, cred_card, active_mem, est_salary]
 
 # get absolute filepath
-file_path_s = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "model", "scaler_instance.joblib")
-file_path_c = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "model", "classifier.joblib")
+#file_path_s = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "model", "scaler_instance.joblib")
+#file_path_c = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "model", "classifier.joblib")
 
 
 # parent_dir = os.path.dirname(current_dir)
 scaler = joblib.load("scaler_instance.joblib")
-classifier = joblib.load("classifier.joblib")
+classifier = load_model("my_model.keras")
 
 pred = classifier.predict(scaler.transform(np.array([stat_info])))
 new_pred = round(float(pred[0][0] * 100), 2)
