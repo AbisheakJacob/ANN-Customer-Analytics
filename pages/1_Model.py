@@ -57,8 +57,8 @@ file_path_c = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 
 # parent_dir = os.path.dirname(current_dir)
-scaler = joblib.load(file_path_s)
-classifier = joblib.load(file_path_c)
+scaler = joblib.load("scaler_instance.joblib")
+classifier = joblib.load("classifier.joblib")
 
 pred = classifier.predict(scaler.transform(np.array([stat_info])))
 new_pred = round(float(pred[0][0] * 100), 2)
