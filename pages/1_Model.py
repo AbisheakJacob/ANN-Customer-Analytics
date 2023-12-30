@@ -1,8 +1,10 @@
 import streamlit as st 
 import pandas as pd
 import numpy as np
+import tensorflow as tf
 import joblib
 import os
+import tensorflow as tf
 
 from warnings import filterwarnings
 filterwarnings("ignore")
@@ -57,8 +59,9 @@ stat_info = geo + [cred, gender, age, tenure, bal, num_products, cred_card, acti
 
 # parent_dir = os.path.dirname(current_dir)
 scaler = joblib.load("scaler_instance.joblib")
-classifier = joblib.load("classifier.joblib")
-
+#classifier = joblib.load("classifier.joblib")
+options = tf.saved_model.LoadOptions(experimental_io_device='/job:localhost')
+classifier = tf.keras.models.load_model("saved_model", options=options)
 pred = classifier.predict(scaler.transform(np.array([stat_info])))
 new_pred = round(float(pred[0][0] * 100), 2)
 
