@@ -57,7 +57,7 @@ stat_info = geo + [cred, gender, age, tenure, bal, num_products, cred_card, acti
 
 # parent_dir = os.path.dirname(current_dir)
 scaler = joblib.load("scaler_instance.joblib")
-classifier = joblib.load("my_model.keras")
+classifier = joblib.load("classifier.joblib")
 
 pred = classifier.predict(scaler.transform(np.array([stat_info])))
 new_pred = round(float(pred[0][0] * 100), 2)
