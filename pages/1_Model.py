@@ -1,7 +1,6 @@
 import streamlit as st 
 import pandas as pd
 import numpy as np
-from keras.models import load_model
 import joblib
 import os
 
@@ -58,7 +57,7 @@ stat_info = geo + [cred, gender, age, tenure, bal, num_products, cred_card, acti
 
 # parent_dir = os.path.dirname(current_dir)
 scaler = joblib.load("scaler_instance.joblib")
-classifier = load_model("my_model.keras")
+classifier = joblib.load("my_model.keras")
 
 pred = classifier.predict(scaler.transform(np.array([stat_info])))
 new_pred = round(float(pred[0][0] * 100), 2)
