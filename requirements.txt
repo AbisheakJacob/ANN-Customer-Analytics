@@ -13,3 +13,4 @@ tensorboard-data-server == 0.7.2
 tensorflow-estimator == 2.15.0
 tensorflow-io-gcs-filesystem == 0.31.0
 Theano == 1.0.5
+phik == 0.12.3
