@@ -1,0 +1,4 @@
+pandas == 2.1.4
+joblib == 1.1.1
+numpy == 1.25.2
+streamlit == 1.29.0
