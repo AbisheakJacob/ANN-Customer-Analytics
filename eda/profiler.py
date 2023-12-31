@@ -19,3 +19,5 @@ def profile_report():
     return (data, profile)
 
 
+if __name__ == "__main__":
+    profile_report()

@@ -22,4 +22,6 @@ st.dataframe(data)
 with open("profile_report.html", "r", encoding="utf-8") as file:
     report_html = file.read()
 
+st.subheader("Profile Report")
+st.write("This profile report was created using ydata profiling.")
 html(report_html, width=1000, height=800, scrolling=True)
