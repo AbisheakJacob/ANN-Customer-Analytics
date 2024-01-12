@@ -19,7 +19,7 @@ data.drop(columns=['RowNumber', 'CustomerId', 'name'], inplace=True)
 st.dataframe(data)
 
 # Display the HTML file in the Streamlit app
-with open("data/profile_report.html", "r", encoding="utf-8") as file:
+with open("eda/profile_report.html", "r", encoding="utf-8") as file:
     report_html = file.read()
 
 st.subheader("Profile Report")
