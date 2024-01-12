@@ -5,7 +5,7 @@ st.set_page_config(
     page_icon="🗒️",
 )
 
-st.write("Customer Churn Prediction in Banks using Artificial Neural Networks")
+st.header("Customer Churn Prediction in Banks using Artificial Neural Networks")
 
 st.sidebar.success("Select a Page from above.")
 
