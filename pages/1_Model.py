@@ -50,7 +50,8 @@ est_salary = st.number_input("What is the estimated salary of the Customer: ", m
 #personal_info = [cust_id, name]
 stat_info = geo + [cred, gender, age, tenure, bal, num_products, cred_card, active_mem, est_salary]
 
-scaler = joblib.load("scaler_instance.joblib")
+scaler = joblib.load("data/scaler_instance.joblib")
+
 options = tf.saved_model.LoadOptions(experimental_io_device='/job:localhost')
 classifier = tf.keras.models.load_model("saved_model", options=options)
 pred = classifier.predict(scaler.transform(np.array([stat_info])))
