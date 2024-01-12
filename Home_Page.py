@@ -5,13 +5,12 @@ st.set_page_config(
     page_icon="👋",
 )
 
-st.write("# Welcome to Streamlit!")
+st.write("Customer Churn Prediction in Banks using Artificial Neural Networks")
 
-st.sidebar.success("Select a demo above.")
+st.sidebar.success("Select a Page from above.")
 
 st.markdown(
     """
-# Customer Churn Prediction in Banks using Artificial Neural Networks
 
 The project involves predicting customer churn within the banking industry using deep learning models. The focus centers on harnessing the capabilities of Artificial Neural Networks (ANN) to increase accuracy. K-fold cross-validation and Grid search cross-validation techniques are employed to achieve higher levels of accuracy.
 
