@@ -1,8 +1,8 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="Hello",
-    page_icon="👋",
+    page_title="ANN Customer Churn Prediction",
+    page_icon="🗒️",
 )
 
 st.write("Customer Churn Prediction in Banks using Artificial Neural Networks")
